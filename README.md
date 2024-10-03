@@ -89,3 +89,13 @@
     }
 ```    
 - we can put component inside a react element, react element inside another react element, and also react element inside a component
+
+## Dynamic mapping
+```jsx
+
+const restList = [restaurant data];
+{ 
+    restList.map((restaurant) => <RestaurantCard key={restList.info.id} resData= {restaurant}/>)
+}
+
+```
