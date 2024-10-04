@@ -158,11 +158,47 @@ import Header from "./components/Header";
   - useEffect()
 
 - useState()
+  - Whenever state variables update, reacttriggers a reconciliation cycle (re-renders)
 
 ```jsx
 const [listOfRestaurants, setListOfRestaurants] = useState(restList);
 ```
 
+- useEffect()
+  callback function written in it is called after the component renders
+  e.g., Body will render and then the fetch api will be called and page will be re-rendered by useEffect
+
+```jsx
+ useEffect(()=>{
+        fetchData();
+    }, []);
+
+    fetchData() - callback function
+    [] - dependency
+```
+
 ## React reconciliation algorithm (React Fiber architecture) - introduced in react16
 
 React uses Diff algorithm to compare the Old Virtual DOM and new Virtual DOM and finally based on the difference make changes to the actual DOM
+
+## CORS - Cross origin resource sharing
+
+- Browser clocks call from one origin to another origin for resources
+- Preflight/OPTIONS calls are made from origin1 before the actual request
+- on receiving Pre-flight server in origin 2, it sends additional HTTP header
+- actual POST, GET or any other call is made then
+- Additional header:
+  - Access-Control-Allow-Origin: \*
+  - Access-Control-Allow-Methods: GET, POST, PUT, DELETE
+
+## Shimmer UI
+
+- resembles the skeleton of actual UI till the data is loaded
+- displays fake cards or skeleton
+- conditional rendering
+
+```jsx
+if (listOfRestaurants.length === 0) {
+  return <Shimmer />;
+}
+```
