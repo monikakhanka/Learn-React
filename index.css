@@ -19,6 +19,11 @@ img {
     padding: 10px;
 }
 
+.nav-items>ul>li>a{
+    text-decoration: none;
+    color: black;
+}
+
 .login{
     padding: 20px;
     cursor: pointer;
@@ -91,3 +96,7 @@ img {
     height: 150px;
 }
 
+.res-menu{
+    text-decoration: none;
+    color: black;
+}

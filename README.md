@@ -202,3 +202,28 @@ if (listOfRestaurants.length === 0) {
   return <Shimmer />;
 }
 ```
+
+## useEffect Hook
+
+- called after the component is rendered
+- if it is called without dependency array => it will be called everytime the component is rendered
+
+```jsx
+useEffect(() => {
+  console.log("useffect called");
+});
+```
+
+- if useEffect is called with an empty dependency array => it will be called only once during initial render
+
+```jsx
+useEffect(() => {}, []);
+```
+
+-if called with a dependency in the dependency array => it will be called each time the dependency changes
+
+```jsx
+useEffect(() => {}, [btnName]);
+```
+
+each time changes are made in btnName useEffect will be called
