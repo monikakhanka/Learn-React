@@ -227,3 +227,56 @@ useEffect(() => {}, [btnName]);
 ```
 
 each time changes are made in btnName useEffect will be called
+
+## Class based components:
+
+- Lifecycle of components
+
+  - Parent constructor()
+  - Parent render()
+  - Child constructor()
+  - Child render()
+  - Child componentDidMount()
+  - Parent componentDidMount()
+
+- First the Render phase (constructor() and render()) of all the children is batched and called
+- then the commit phase( DOM update and componentDidMount()) of all the children is called
+
+Lifecycle methods calling order:
+
+- Mounting (constructor, render, componentDidMount-> api is called after this)
+- Updating (setState(), componentDidUpdate-> after the UI has been updated with fetched data)
+- Unmounting (componentWillUnmount->called when component is gone from the page i.e., when next page is rendered)
+
+- Use case of componentWillUnmount()
+
+```jsx
+componentDidMount(){
+  this.timer = setInterval(()=>{
+    console.log("React class");
+  }, 1000)
+}
+// setInterval will be called everytime page renders, will work after every 1s
+// even when page changes it keeps working, hence we need to clear it on each page change
+
+componentWillUnmount(){
+  clearInterval(this.time);
+}
+// will be called on changing the page and will clear the serInterval and start it afresh
+```
+
+- In case of functional component
+
+```jsx
+useEffect(() => {
+  const timer = setIntervak(() => {
+    console.log("Hello");
+  }, 1000);
+});
+
+return () => {
+  clearInterval(timer);
+};
+
+// return() is called when the component is unmounted, it clears the setInterval
+```

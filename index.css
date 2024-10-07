@@ -100,3 +100,11 @@ img {
     text-decoration: none;
     color: black;
 }
+
+/*About Us page */
+.user-card{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black;
+    margin: 20px 20px;
+}
