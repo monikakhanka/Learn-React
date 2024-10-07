@@ -1,7 +1,8 @@
-    import RestaurantCard from "./RestaurantCard";
-    import { useState, useEffect } from "react";
-    import Shimmer from "./Shimmer";
+import RestaurantCard from "./RestaurantCard";
+import { useState, useEffect } from "react";
+import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 
 
@@ -15,19 +16,19 @@ import { Link } from "react-router-dom";
         }, []);
 
         const fetchData = async () => {
-            try{
                 const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5946784&lng=73.7095365&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
                 const json = await data.json();
                 const restaurants = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
                 setListOfRestaurants(restaurants);
                 setFilteredRestaurants(restaurants);
-            }catch(e){
-                console.error("Error fetching data:", e);
-                setListOfRestaurants([]);
-            }
+            
         }
     
+        const onlineStatus = useOnlineStatus();
+
+        if(onlineStatus === false) return <h3>Looks like you're offline!! Please check your internet connection</h3>
         
+        // if true will continue 
 
         return listOfRestaurants.length === 0 ? 
         (<Shimmer />)

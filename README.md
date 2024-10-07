@@ -269,7 +269,7 @@ componentWillUnmount(){
 
 ```jsx
 useEffect(() => {
-  const timer = setIntervak(() => {
+  const timer = setInterval(() => {
     console.log("Hello");
   }, 1000);
 });
@@ -280,3 +280,26 @@ return () => {
 
 // return() is called when the component is unmounted, it clears the setInterval
 ```
+
+## Creating custom hooks - utility functions
+
+- follows single Responsibilty principle
+
+## Dynamic bundling - splitting the app in smaller logical chunks
+
+- Code splitting
+- Dynamic bundling
+- chunking
+- lazy loading
+- on demand loading
+
+```jsx
+  const Grocery = lazy(()=> import("./components/Grocery"));
+
+  path: "/grocery",
+  element: <Suspense fallback={<h1>Loading...</h1>}><Grocery/></Suspense>
+
+```
+
+- fallback is the content which will be shown till the grocery code is loading
+- Lazy loading help reduce the size of bundle, all the code doesn't come at once, will only come when requested
