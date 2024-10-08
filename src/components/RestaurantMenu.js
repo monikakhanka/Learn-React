@@ -17,8 +17,8 @@ const RestaurantMenu = () => {
     console.log(itemCards);
 
     return (
-        <div className="menu">
-            <h1>{name}</h1>
+        <div className="menu m-6 p-6">
+            <h1 className="font-bold text-xl mb-2">{name}</h1>
             <p>{cuisines.join(",")} - {costForTwoMessage}</p>
             <ul>
                 {itemCards.map(item => <li key={item.card.info.id}>{item.card.info.name} - {"Rs."}{item.card.info.price/100 || item.card.info.defaultPrice/ 100}  </li>)}
