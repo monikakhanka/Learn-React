@@ -303,3 +303,58 @@ return () => {
 
 - fallback is the content which will be shown till the grocery code is loading
 - Lazy loading help reduce the size of bundle, all the code doesn't come at once, will only come when requested
+
+## Higher order component
+
+- Is a function that takes a component as input and returns a function
+- It takes an existing component(pure function) and enhances it and returns it
+
+- Promoted Label feature
+
+```jsx
+export const withPromotedLabel = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <div>
+        <label>Promoted</label>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
+};
+```
+
+## Controlled and uncontrolled components
+
+## Props Drilling
+
+## React context
+
+- like a global location to keep data that can be used anywhere
+- a way to solve props drilling
+- eg. storing the logged in user details
+
+```jsx
+const UserContext = createContext({
+  loggedInUser: "Default User,
+});
+
+export default UserContext;
+```
+
+- this context can be accessed using react hook- useContext
+
+```jsx
+const data = useContext(UserContext);
+```
+
+- context can be accessed in two ways:
+
+  - In functional components- using useContext hook
+  - In class components- usinf <UserContext.consumer>
+
+- Modifying context
+  - Using <UserContext.Provider value={{loggedInUser, setUserName}}>
+  - here setUserName is binding the context with a state variable, on changing which the value of the context will change
+  - We can wrap the whole app into context and the value of context can be used everywhere
+  - when used around a specific component only that component will have its value
