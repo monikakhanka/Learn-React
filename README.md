@@ -358,3 +358,12 @@ const data = useContext(UserContext);
   - here setUserName is binding the context with a state variable, on changing which the value of the context will change
   - We can wrap the whole app into context and the value of context can be used everywhere
   - when used around a specific component only that component will have its value
+
+
+## Redux toolkit
+  - Install @reduxjs/toolkit and react-redux
+  - Build our store
+  - Connect our store to our app
+  - Slice (cart slice)
+  - dispatch (action)
+  - Selector
