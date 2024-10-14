@@ -40,7 +40,7 @@ import UserContext from "../utils/UserContext";
             <div className="body">
                 <div className="filter flex">
                     <div className="search m-4 p-4">
-                        <input type="text" className="border border-solid border-black mx-4" value={searchText} onChange={(e) => {setSearchText(e.target.value)}}/>
+                        <input type="text" className="border border-solid border-black mx-4" value={searchText} data-testid="searchInput" onChange={(e) => {setSearchText(e.target.value)}}/>
                         <button className="bg-blue-200 px-4 py-2 rounded-md" onClick={() => {
                             const filteredRestaurant = listOfRestaurants.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()));
                             setFilteredRestaurants(filteredRestaurant);
@@ -48,8 +48,8 @@ import UserContext from "../utils/UserContext";
                     </div>
                     <div className="search m-4 flex items-center">
                             <button className="px-5 py-2 bg-blue-200 rounded-md" onClick={() =>{
-                            const filteredList = listOfRestaurants.filter((res) => res.info.avgRating > 4);
-                            setListOfRestaurants(filteredList); 
+                            const filteredList = listOfRestaurants.filter((res) => res.info.avgRating > 4.2);
+                            setFilteredRestaurants(filteredList); 
                         }}>Top Rated Restaurants</button>
                        
                     </div>
@@ -63,7 +63,7 @@ import UserContext from "../utils/UserContext";
 
                 <div className="res-container flex flex-wrap justify-evenly">
                     { 
-                    filteredRestaurants.map((restaurant) => <Link className="res-menu" to={"/restaurants/"+restaurant.info.id} key= {restaurant.info.id}><RestaurantCard resData= {restaurant}/></Link>)
+                    filteredRestaurants.map((restaurant) => <Link className="res-menu" to={"/restaurants/"+restaurant.info.id} key= {restaurant.info.id}><RestaurantCard resData= {restaurant?.info}/></Link>)
                     }   
                 </div>
             </div>

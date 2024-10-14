@@ -359,11 +359,30 @@ const data = useContext(UserContext);
   - We can wrap the whole app into context and the value of context can be used everywhere
   - when used around a specific component only that component will have its value
 
-
 ## Redux toolkit
-  - Install @reduxjs/toolkit and react-redux
-  - Build our store
-  - Connect our store to our app
-  - Slice (cart slice)
-  - dispatch (action)
-  - Selector
+
+- Install @reduxjs/toolkit and react-redux
+- Build our store
+- Connect our store to our app
+- Slice (cart slice)
+- dispatch (action)
+- Selector
+
+## Types of testing:
+
+- unit testing
+- integration testing
+- end to end testing
+
+## Setting up testing in our app
+
+- Install react testing library
+- Install jest
+- Install babel dependencies
+- Configure Babel (babel.config.js)
+- Configure parcel to disable default babel transpilation (.parcelrc)
+- Jest configuration - npx jest --init
+- install jsdom library
+- install @babel/preset-react #npm install --save-dev @babel/preset-react
+- add @babel/preset-react to babel.config.js in order to enable support for jsx syntax in tests
+- install @testing-library/jest-dom
