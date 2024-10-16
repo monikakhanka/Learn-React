@@ -18,7 +18,7 @@ import UserContext from "../utils/UserContext";
         }, []);
 
         const fetchData = async () => {
-                const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5946784&lng=73.7095365&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+                const data = await fetch("/api/restaurants");
                 const json = await data.json();
                 const restaurants = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
                 setListOfRestaurants(restaurants);
